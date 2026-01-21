@@ -7,3 +7,6 @@ broadcast/
 cache/
 lib/
 out/
+
+# Secrets
+keystore/
