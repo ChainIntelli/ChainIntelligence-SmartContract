@@ -9,7 +9,7 @@ KEY_STORE_PATH ?= ./keystore/deployer
 KEY_PWD_PATH ?= ./keystore/deployer.password.txt
 
 # Network Configuration
-BSC_TEST_RPC_URL ?= https://data-seed-prebsc-1-s1.binance.org:8545
+RPC_URL ?= https://opbnb-testnet-rpc.bnbchain.org/
 
 # ==================== Install Dependencies ====================
 .PHONY: install
@@ -89,7 +89,7 @@ create-keystore:
 .PHONY: deploy-bsc-test
 deploy-bsc-test:
 	forge script script/Deploy.s.sol:DeployScript \
-		--rpc-url $(BSC_TEST_RPC_URL) \
+		--rpc-url $(RPC_URL) \
 		--keystore $(KEY_STORE_PATH) \
 		--password-file $(KEY_PWD_PATH) \
 		--broadcast \
@@ -99,7 +99,7 @@ deploy-bsc-test:
 .PHONY: upgrade-bsc-test
 upgrade-bsc-test:
 	forge script script/Upgrade.s.sol:UpgradeScript \
-		--rpc-url $(BSC_TEST_RPC_URL) \
+		--rpc-url $(RPC_URL) \
 		--keystore $(KEY_STORE_PATH) \
 		--password-file $(KEY_PWD_PATH) \
 		--broadcast \
